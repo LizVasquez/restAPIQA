@@ -1,0 +1,30 @@
+package helpers;
+
+import net.masterthought.cucumber.Configuration;
+import net.masterthought.cucumber.ReportBuilder;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+public class GenerateLocalReport {
+
+    public static void main(String[]abc){
+        String path="E:\\2021\\Material2QA\\build\\reports\\cucumber\\";
+        File reportFolder= new File(path+"CustomReport");
+
+        List<String> jsonFiles = new ArrayList<>();
+        jsonFiles.add(path+"report.json");
+
+        Configuration configuration= new Configuration(reportFolder,"UPB 2021");
+        configuration.addClassifications("Owner","Liz");
+        configuration.addClassifications("SO","Windows");
+        configuration.addClassifications("Project","TODO.LY");
+        configuration.setBuildNumber("0.1");
+
+        ReportBuilder reportBuilder = new ReportBuilder(jsonFiles,configuration);
+        reportBuilder.generateReports();
+
+    }
+
+}
