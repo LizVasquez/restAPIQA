@@ -1,21 +1,21 @@
-Feature: Project
+Feature: Project Clean
 
   #este es un comentario
-  @item
+  @Projectos
   Scenario: As admin user
   I want to create, update and delete a project
   So that i am able to manipulate the project
 
-    Given yo tengo acceso al Todo.ly
-    When yo envio una peticion POST al url http://todo.ly/api/projects.json con json
+    Given I have access to Todo.ly
+    When I send a request POST to url http://todo.ly/api/projects.json with json
     """
     {
       "Content":"EXTERNAL FILE",
       "Icon":"4"
     }
     """
-    Then yo espero que el codigo de respuesta sea 200
-    And yo espero el response body sea
+    Then I expected response code 200
+    And I expected the response body
     """
     {
         "Id": "IGNORE",
@@ -27,6 +27,7 @@ Feature: Project
         "Collapsed": false,
         "ItemOrder": "IGNORE",
         "Children": [
+
         ],
         "IsProjectShared": false,
         "ProjectShareOwnerName": null,
@@ -39,16 +40,16 @@ Feature: Project
         "SyncClientCreationId": null
     }
     """
-    And yo obtengo el Id y lo guardo en ID_PROJECT
-    When yo envio una peticion PUT al url http://todo.ly/api/projects/ID_PROJECT.json con json
+    And I get the property Id save on ID_PROJECT
+    When I send a request PUT to url http://todo.ly/api/projects/ID_PROJECT.json with json
     """
     {
       "Content":"EXTERNAL FILE",
       "Icon":"4"
     }
     """
-    Then yo espero que el codigo de respuesta sea 200
-    And yo espero el response body sea
+    Then I expected response code 200
+    And I expected the response body
     """
     {
         "Id": ID_PROJECT,
@@ -60,6 +61,7 @@ Feature: Project
         "Collapsed": false,
         "ItemOrder": "IGNORE",
         "Children": [
+
         ],
         "IsProjectShared": false,
         "ProjectShareOwnerName": null,
@@ -72,11 +74,11 @@ Feature: Project
         "SyncClientCreationId": null
     }
     """
-    When yo envio una peticion GET al url http://todo.ly/api/projects/ID_PROJECT.json con json
+    When I send a request GET to url http://todo.ly/api/projects/ID_PROJECT.json with json
     """
     """
-    Then yo espero que el codigo de respuesta sea 200
-    And yo espero el response body sea
+    Then I expected response code 200
+    And I expected the response body
     """
    {
         "Id": ID_PROJECT,
@@ -88,6 +90,7 @@ Feature: Project
         "Collapsed": false,
         "ItemOrder": "IGNORE",
         "Children": [
+
         ],
         "IsProjectShared": false,
         "ProjectShareOwnerName": null,
@@ -100,11 +103,11 @@ Feature: Project
         "SyncClientCreationId": null
     }
     """
-    When yo envio una peticion DELETE al url http://todo.ly/api/projects/ID_PROJECT.json con json
+    When I send a request DELETE to url http://todo.ly/api/projects/ID_PROJECT.json with json
     """
     """
-    Then yo espero que el codigo de respuesta sea 200
-    And yo espero el response body sea
+    Then I expected response code 200
+    And I expected the response body
     """
     {
         "Id": ID_PROJECT,
@@ -116,6 +119,7 @@ Feature: Project
         "Collapsed": false,
         "ItemOrder": "IGNORE",
         "Children": [
+
         ],
         "IsProjectShared": false,
         "ProjectShareOwnerName": null,
